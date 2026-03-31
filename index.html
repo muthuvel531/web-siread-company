@@ -1,0 +1,293 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevPortfolio | Professional Web Solutions</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap');
+
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        .glass {
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+
+<body class="bg-slate-950 text-slate-100">
+
+    <nav class="fixed w-full z-50 glass py-4 px-6 flex justify-between items-center">
+        <div class="text-xl font-extrabold tracking-tighter text-blue-500">CORE.DEV</div>
+        <ul class="hidden md:flex space-x-8 text-sm font-medium uppercase tracking-widest text-slate-400">
+            <li><a href="#home" class="hover:text-blue-400 transition">Home</a></li>
+            <li><a href="#work" class="hover:text-blue-400 transition">Work</a></li>
+            <li><a href="#services" class="hover:text-blue-400 transition">Services</a></li>
+            <li><a href="#contact"
+                    class="bg-blue-600 text-white px-5 py-2 rounded-full hover:bg-blue-500 transition">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section id="home" class="min-h-screen flex flex-col justify-center items-center px-6 text-center">
+        <span class="text-blue-500 font-semibold tracking-widest mb-4 uppercase text-sm">Web Development &
+            Automation</span>
+        <h1 class="text-5xl md:text-8xl font-black mb-6 leading-tight">
+            We build <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">Digital
+                Engines.</span>
+        </h1>
+        <p class="text-slate-400 max-w-2xl text-lg mb-10">
+            Crafting high-performance web applications and automated business workflows using modern tech stacks.
+        </p>
+        <div class="flex flex-col md:flex-row gap-4">
+            <a href="#work"
+                class="bg-slate-100 text-slate-950 px-8 py-4 rounded-xl font-bold hover:bg-blue-400 transition">View
+                Portfolio</a>
+            <a href="#services"
+                class="border border-slate-700 px-8 py-4 rounded-xl font-bold hover:bg-slate-800 transition">Our
+                Services</a>
+        </div>
+    </section>
+
+    <section id="work" class="py-24 px-6 max-w-7xl mx-auto reveal">
+        <div class="flex justify-between items-end mb-12">
+            <div>
+                <h2 class="text-4xl font-bold mb-2">Featured Projects</h2>
+                <p class="text-slate-500">A selection of our latest development work.</p>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div
+                class="group relative overflow-hidden rounded-3xl bg-slate-900 border border-slate-800 p-8 hover:border-blue-500/50 transition">
+                <div class="mb-20">
+                    <i class="fa-solid fa-layer-group text-4xl text-blue-500 mb-6"></i>
+                    <h3 class="text-2xl font-bold mb-3">Enterprise SaaS Platform</h3>
+                    <p class="text-slate-400 leading-relaxed">A full-stack dashboard featuring real-time data
+                        visualization and secure user authentication.</p>
+                </div>
+                <div class="flex flex-wrap gap-2 text-xs font-mono text-blue-400">
+                    <span>#REACT</span> <span>#FIREBASE</span> <span>#TAILWIND</span>
+                </div>
+            </div>
+
+            <div
+                class="group relative overflow-hidden rounded-3xl bg-slate-900 border border-slate-800 p-8 hover:border-purple-500/50 transition">
+                <div class="mb-20">
+                    <i class="fa-solid fa-gears text-4xl text-purple-500 mb-6"></i>
+                    <h3 class="text-2xl font-bold mb-3">AI Workflow Automator</h3>
+                    <p class="text-slate-400 leading-relaxed">Integrated n8n with WhatsApp and OpenAI to automate 90% of
+                        client inquiry responses.</p>
+                </div>
+                <div class="flex flex-wrap gap-2 text-xs font-mono text-purple-400">
+                    <span>#PYTHON</span> <span>#N8N</span> <span>#OPENAI</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact" class="py-20 border-t border-slate-900 text-center">
+        <h2 class="text-3xl font-bold mb-6">Ready to start a project?</h2>
+        <p class="text-slate-500 mb-8">Let's discuss how we can scale your digital presence.</p>
+        <a href="mailto:hello@example.com"
+            class="text-2xl font-bold text-blue-500 hover:underline">hello@coredev.com</a>
+
+        <div class="mt-12 flex justify-center space-x-6 text-slate-600">
+            <a href="#" class="hover:text-white transition"><i class="fa-brands fa-github text-2xl"></i></a>
+            <a href="#" class="hover:text-white transition"><i class="fa-brands fa-linkedin text-2xl"></i></a>
+            <a href="#" class="hover:text-white transition"><i class="fa-brands fa-twitter text-2xl"></i></a>
+        </div>
+    </footer>
+
+    <script>
+        // Reveal elements on scroll
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 150;
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add("active");
+                }
+            }
+        }
+
+        window.addEventListener("scroll", reveal);
+        // Run once on load
+        reveal();
+    </script>
+</body>
+
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agency Portfolio | Premium Web Development</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap');
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        .glass {
+            background: rgba(15, 23, 42, 0.9);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: 0.6s all ease-out;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+
+<body class="bg-slate-950 text-slate-100">
+
+    <nav class="fixed w-full z-50 glass py-4 px-8 flex justify-between items-center">
+        <div class="text-xl font-extrabold tracking-tight text-white">STUDIO<span class="text-blue-500">DEV</span></div>
+        <div class="hidden md:flex space-x-8 text-sm font-medium uppercase">
+            <a href="#work" class="hover:text-blue-400 transition">Work</a>
+            <a href="#services" class="hover:text-blue-400 transition">Services</a>
+            <a href="#contact" class="bg-blue-600 px-5 py-2 rounded-lg hover:bg-blue-500 transition">Start a Project</a>
+        </div>
+    </nav>
+
+    <section class="h-screen flex flex-col justify-center items-center px-6 text-center">
+        <h1 class="text-5xl md:text-8xl font-extrabold mb-6 tracking-tighter">
+            We Build <span class="text-blue-500">High-Performance</span> Digital Products.
+        </h1>
+        <p class="text-slate-400 max-w-2xl text-lg mb-10">
+            Professional web development specializing in scalable architecture, AI automation, and bespoke user
+            experiences.
+        </p>
+        <div class="flex gap-4">
+            <a href="#work"
+                class="bg-white text-slate-950 px-8 py-4 rounded-xl font-bold hover:bg-blue-400 transition">View
+                Portfolio</a>
+            <a href="#contact"
+                class="border border-slate-700 px-8 py-4 rounded-xl font-bold hover:bg-slate-800 transition">Contact
+                Us</a>
+        </div>
+    </section>
+
+    <section id="work" class="py-24 px-6 max-w-7xl mx-auto">
+        <h2 class="text-4xl font-bold mb-16 reveal">Selected Projects</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+
+            <div class="reveal group">
+                <div
+                    class="relative overflow-hidden rounded-3xl bg-slate-900 border border-slate-800 aspect-video mb-6">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950 to-transparent opacity-60"></div>
+                    <div class="absolute bottom-6 left-6">
+                        <span class="bg-blue-600 text-xs px-3 py-1 rounded-full uppercase font-bold">Full-Stack</span>
+                    </div>
+                </div>
+                <h3 class="text-2xl font-bold mb-2 group-hover:text-blue-400 transition">SaaS Analytics Dashboard</h3>
+                <p class="text-slate-400 mb-4">A real-time data monitoring system built with React and Firebase for
+                    enterprise clients.</p>
+                <div class="flex gap-3 text-sm text-slate-500">
+                    <span>#React</span> <span>#NodeJS</span> <span>#Firebase</span>
+                </div>
+            </div>
+
+            <div class="reveal group">
+                <div
+                    class="relative overflow-hidden rounded-3xl bg-slate-900 border border-slate-800 aspect-video mb-6">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950 to-transparent opacity-60"></div>
+                    <div class="absolute bottom-6 left-6">
+                        <span class="bg-purple-600 text-xs px-3 py-1 rounded-full uppercase font-bold">Automation</span>
+                    </div>
+                </div>
+                <h3 class="text-2xl font-bold mb-2 group-hover:text-purple-400 transition">AI Workflow Engine</h3>
+                <p class="text-slate-400 mb-4">Integrating n8n and Python to automate internal business operations and
+                    lead gen.</p>
+                <div class="flex gap-3 text-sm text-slate-500">
+                    <span>#n8n</span> <span>#Python</span> <span>#OpenAI</span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="services" class="py-24 bg-slate-900/50">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="reveal p-8 rounded-2xl border border-slate-800 bg-slate-950">
+                <i class="fa-solid fa-code text-3xl text-blue-500 mb-6"></i>
+                <h4 class="text-xl font-bold mb-4">Web Development</h4>
+                <p class="text-slate-400">Custom, responsive websites built with the latest frameworks for speed and
+                    SEO.</p>
+            </div>
+            <div class="reveal p-8 rounded-2xl border border-slate-800 bg-slate-950">
+                <i class="fa-solid fa-bolt text-3xl text-yellow-500 mb-6"></i>
+                <h4 class="text-xl font-bold mb-4">Workflow Automation</h4>
+                <p class="text-slate-400">Connecting your favorite apps to automate repetitive tasks and save hours of
+                    work.</p>
+            </div>
+            <div class="reveal p-8 rounded-2xl border border-slate-800 bg-slate-950">
+                <i class="fa-solid fa-database text-3xl text-emerald-500 mb-6"></i>
+                <h4 class="text-xl font-bold mb-4">Cloud Infrastructure</h4>
+                <p class="text-slate-400">Secure, scalable backend solutions using Firebase, AWS, or private servers.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact" class="py-20 text-center border-t border-slate-900">
+        <h2 class="text-3xl font-bold mb-4">Interested in working with us?</h2>
+        <p class="text-slate-500 mb-8">Let's build something extraordinary together.</p>
+        <a href="mailto:contact@agency.com"
+            class="text-2xl font-bold hover:text-blue-500 transition">contact@studiodev.com</a>
+    </footer>
+
+    <script>
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                if (elementTop < windowHeight - 100) {
+                    reveals[i].classList.add("active");
+                }
+            }
+        }
+        window.addEventListener("scroll", reveal);
+        reveal(); // Initial check
+    </script>
+</body>
+
+</html>
