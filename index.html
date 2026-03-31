@@ -4,10 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="CoreStudio builds high-performance websites, scalable backends, and AI-powered automation for modern businesses.">
-    <title>Professional Web Dev | Portfolio</title>
+    <meta name="description"
+        content="HMBTEXT creates innovative digital solutions, specialized web development, and AI automation for modern businesses.">
+    <title>HMBTEXT | Professional Web Development & Automation</title>
+
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap');
 
@@ -18,6 +21,7 @@
 
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
+            overflow-x: hidden;
         }
 
         .glass {
@@ -29,168 +33,254 @@
         .reveal {
             opacity: 0;
             transform: translateY(30px);
-            transition: all 0.8s ease-out;
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .reveal.active {
             opacity: 1;
             transform: translateY(0);
         }
+
+        /* Mobile Menu Animation */
+        #mobile-menu:not(.hidden) {
+            display: block;
+            animation: slideDown 0.3s ease-out forwards;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .gradient-text {
+            background: linear-gradient(90deg, #60a5fa, #a78bfa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
     </style>
 </head>
 
 <body class="bg-slate-950 text-slate-100">
 
-    <nav class="fixed top-0 w-full z-50 glass py-4 px-6 md:px-8 flex items-center justify-between">
+    <nav class="fixed top-0 w-full z-50 glass py-4 px-6 md:px-12 flex items-center justify-between">
         <div class="flex items-center gap-3">
-            <div class="text-xl font-bold tracking-tighter text-blue-500">CORE<span class="text-white">STUDIO</span></div>
+            <!-- <img src="logo.png" alt="HMB Logo" class="h-10 w-auto object-contain bg-blue-500/10 rounded-md p-1"> -->
+            <div class="text-xl font-bold tracking-tighter text-blue-500">HMB<span class="text-white">TEXT</span></div>
         </div>
-        <button id="menu-toggle" aria-controls="mobile-menu" aria-expanded="false" class="md:hidden p-3 rounded-full text-slate-100 hover:bg-slate-800 transition">
-            <span class="sr-only">Toggle navigation menu</span>
-            <i class="fa-solid fa-bars text-2xl"></i>
+
+        <div class="hidden md:flex space-x-10 text-xs font-semibold uppercase tracking-widest text-slate-400">
+            <a href="#home" class="hover:text-blue-400 transition-all">Home</a>
+            <a href="#about" class="hover:text-blue-400 transition-all">About</a>
+            <a href="#services" class="hover:text-blue-400 transition-all">Services</a>
+            <a href="#projects" class="hover:text-blue-400 transition-all">Projects</a>
+            <a href="#contact"
+                class="bg-blue-600 text-white px-6 py-2.5 rounded-full hover:bg-blue-500 hover:shadow-lg hover:shadow-blue-500/20 transition-all">Get
+                a Quote</a>
+        </div>
+
+        <button id="menu-toggle" class="md:hidden p-2 text-slate-100 hover:bg-slate-800 rounded-lg transition">
+            <i class="fa-solid fa-bars-staggered text-2xl"></i>
         </button>
-        <div class="hidden md:flex space-x-8 text-sm font-medium uppercase tracking-widest text-slate-400">
-            <a href="#home" class="hover:text-blue-400 transition">Home</a>
-            <a href="#about" class="hover:text-blue-400 transition">About</a>
-            <a href="#services" class="hover:text-blue-400 transition">Services</a>
-            <a href="#projects" class="hover:text-blue-400 transition">Projects</a>
-            <a href="#contact" class="bg-blue-600 text-white px-5 py-2 rounded-lg hover:bg-blue-500 transition">Contact</a>
-        </div>
     </nav>
-    <div id="mobile-menu" class="fixed inset-x-0 top-20 z-40 hidden rounded-b-3xl border-b border-slate-800 bg-slate-950/95 p-6 shadow-2xl backdrop-blur-xl md:hidden">
-        <div class="space-y-4 text-sm font-medium uppercase tracking-widest text-slate-300">
-            <a href="#home" class="block hover:text-blue-400 transition">Home</a>
-            <a href="#about" class="block hover:text-blue-400 transition">About</a>
-            <a href="#services" class="block hover:text-blue-400 transition">Services</a>
-            <a href="#projects" class="block hover:text-blue-400 transition">Projects</a>
-            <a href="#contact" class="block bg-blue-600 text-white px-5 py-3 rounded-lg hover:bg-blue-500 transition">Contact</a>
+
+    <div id="mobile-menu"
+        class="fixed inset-x-0 top-20 z-40 hidden rounded-b-3xl border-b border-slate-800 bg-slate-950/95 p-8 shadow-2xl backdrop-blur-xl md:hidden">
+        <div class="flex flex-col space-y-6 text-center text-sm font-medium uppercase tracking-widest text-slate-300">
+            <a href="#home" class="mobile-link py-2 border-b border-slate-900">Home</a>
+            <a href="#about" class="mobile-link py-2 border-b border-slate-900">About</a>
+            <a href="#services" class="mobile-link py-2 border-b border-slate-900">Services</a>
+            <a href="#projects" class="mobile-link py-2 border-b border-slate-900">Projects</a>
+            <a href="#contact" class="bg-blue-600 text-white py-4 rounded-2xl">Contact Us</a>
         </div>
     </div>
 
-    <header id="home" class="h-screen flex flex-col justify-center items-center text-center px-6">
-        <h1 class="text-5xl md:text-8xl font-extrabold mb-6 tracking-tight">
-            We Design <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-500">Business
-                Success.</span>
-        </h1>
-        <p class="text-slate-400 max-w-2xl text-lg mb-10 leading-relaxed">
-            A professional development company dedicated to building high-performance websites, scalable backends, and
-            automated workflows.
-        </p>
-        <div class="flex gap-4">
-            <a href="#projects"
-                class="bg-white text-slate-950 px-8 py-4 rounded-xl font-bold hover:bg-blue-400 transition">See Our
-                Work</a>
+    <header id="home" class="min-h-screen flex flex-col justify-center items-center text-center px-6 pt-20">
+        <div class="reveal">
+            <span
+                class="inline-block px-4 py-1.5 mb-6 text-xs font-bold tracking-widest text-blue-400 uppercase bg-blue-500/10 border border-blue-500/20 rounded-full">
+                Next-Gen Web Solutions
+            </span>
+            <h1 class="text-5xl md:text-8xl font-black mb-8 leading-[1.1] tracking-tight">
+                Architecting <span class="gradient-text">Digital Mastery.</span>
+            </h1>
+            <p class="text-slate-400 max-w-2xl text-lg md:text-xl mb-12 leading-relaxed mx-auto">
+                HMBTEXT is a professional agency delivering high-performance web applications, scalable backends, and
+                AI-driven automation.
+            </p>
+            <div class="flex flex-col md:flex-row gap-5 justify-center">
+                <a href="#projects"
+                    class="bg-white text-slate-950 px-10 py-4 rounded-2xl font-bold hover:bg-blue-400 hover:scale-105 transition-all">Explore
+                    Projects</a>
+                <a href="#contact"
+                    class="border border-slate-700 px-10 py-4 rounded-2xl font-bold hover:bg-slate-800 transition-all text-slate-300">Start
+                    a Conversation</a>
+            </div>
         </div>
     </header>
 
-    <section id="about" class="py-24 px-6 bg-slate-900/50 reveal">
-        <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+    <section id="about" class="py-32 px-6 bg-slate-900/40 border-y border-slate-900/50 reveal">
+        <div class="max-w-6xl mx-auto grid lg:grid-cols-2 gap-20 items-center">
             <div>
-                <h2 class="text-3xl font-bold mb-6 text-blue-500 uppercase tracking-widest text-sm">Our Mission</h2>
-                <h3 class="text-4xl font-extrabold mb-6">Expertise Meets Innovation.</h3>
-                <p class="text-slate-400 leading-relaxed mb-6">
-                    We specialize in transforming complex business requirements into elegant digital experiences. Our
-                    team leverages the latest in <strong>Full-Stack Development</strong> and <strong>AI Automation</strong>
-                    to keep your company ahead of the curve.
+                <h2 class="text-blue-500 font-bold uppercase tracking-widest text-sm mb-4">Our Identity</h2>
+                <h3 class="text-4xl md:text-5xl font-extrabold mb-8 leading-tight">We Bridge the Gap Between <span
+                        class="text-slate-400">Concept & Code.</span></h3>
+                <p class="text-slate-400 text-lg leading-relaxed mb-8">
+                    At HMBTEXT, we don't just build sites; we engineer growth. Our multidisciplinary team specializes in
+                    <strong>Full-Stack Development</strong> and <strong>Workflow Automation</strong> to streamline your
+                    business operations and maximize your digital footprint.
                 </p>
-                <div class="flex gap-6">
-                    <div class="text-center">
-                        <div class="text-3xl font-bold">50+</div>
-                        <div class="text-xs text-slate-500 uppercase">Projects</div>
+                <div class="grid grid-cols-2 gap-10 border-t border-slate-800 pt-10">
+                    <div>
+                        <div class="text-4xl font-black text-white mb-2">99%</div>
+                        <p class="text-xs uppercase tracking-widest text-slate-500">Client Retention</p>
                     </div>
-                    <div class="text-center">
-                        <div class="text-3xl font-bold">100%</div>
-                        <div class="text-xs text-slate-500 uppercase">Secure</div>
+                    <div>
+                        <div class="text-4xl font-black text-white mb-2">24/7</div>
+                        <p class="text-xs uppercase tracking-widest text-slate-500">Cloud Monitoring</p>
                     </div>
                 </div>
             </div>
-            <div class="bg-slate-800 rounded-3xl p-8 border border-slate-700">
-                <h4 class="text-xl font-bold mb-4">Why Choose Us?</h4>
-                <ul class="space-y-4 text-slate-400">
-                    <li class="flex items-center gap-3"><i class="fa-solid fa-check text-blue-500"></i> Clean,
-                        Maintainable Codebase</li>
-                    <li class="flex items-center gap-3"><i class="fa-solid fa-check text-blue-500"></i> Secure Firebase
-                        & SQL Integration</li>
-                    <li class="flex items-center gap-3"><i class="fa-solid fa-check text-blue-500"></i> SEO &
-                        Performance Optimized</li>
-                </ul>
+            <div class="relative group">
+                <div
+                    class="absolute -inset-1 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-3xl blur opacity-25 group-hover:opacity-50 transition duration-1000">
+                </div>
+                <div class="relative bg-slate-800 rounded-3xl p-10 border border-slate-700/50">
+                    <h4 class="text-xl font-bold mb-6">The HMB Advantage</h4>
+                    <ul class="space-y-6 text-slate-300">
+                        <li class="flex items-start gap-4">
+                            <div class="bg-blue-500/20 p-2 rounded-lg text-blue-400"><i class="fa-solid fa-code"></i>
+                            </div>
+                            <div><span class="font-bold block text-white">Clean Architecture</span> Maintainable,
+                                scalable, and secure code.</div>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <div class="bg-indigo-500/20 p-2 rounded-lg text-indigo-400"><i
+                                    class="fa-solid fa-bolt-lightning"></i></div>
+                            <div><span class="font-bold block text-white">Rapid Deployment</span> Agile workflows for
+                                faster time-to-market.</div>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
     </section>
 
-    <section id="services" class="py-24 px-6 max-w-7xl mx-auto reveal">
-        <h2 class="text-4xl font-bold mb-16 text-center">Core Specializations</h2>
+    <section id="services" class="py-32 px-6 max-w-7xl mx-auto reveal">
+        <div class="text-center mb-20">
+            <h2 class="text-4xl font-black mb-4">Core Specializations</h2>
+            <p class="text-slate-500 max-w-xl mx-auto">Tailored technological solutions designed for specific business
+                challenges.</p>
+        </div>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div class="p-8 rounded-3xl border border-slate-800 bg-slate-950 hover:border-blue-500 transition">
-                <i class="fa-solid fa-laptop-code text-3xl text-blue-500 mb-6"></i>
-                <h4 class="text-xl font-bold mb-4">Web Development</h4>
-                <p class="text-slate-400">Custom React & Next.js applications designed for scalability and speed.</p>
+            <div
+                class="p-10 rounded-[2.5rem] border border-slate-800 bg-slate-950 hover:bg-slate-900 hover:border-blue-500/50 transition-all duration-500 group">
+                <i
+                    class="fa-solid fa-terminal text-4xl text-blue-500 mb-8 group-hover:scale-110 transition-transform"></i>
+                <h4 class="text-2xl font-bold mb-4">Web Apps</h4>
+                <p class="text-slate-500 leading-relaxed">Enterprise-grade React and Next.js applications optimized for
+                    speed and SEO.</p>
             </div>
-            <div class="p-8 rounded-3xl border border-slate-800 bg-slate-950 hover:border-indigo-500 transition">
-                <i class="fa-solid fa-robot text-3xl text-indigo-500 mb-6"></i>
-                <h4 class="text-xl font-bold mb-4">AI Automation</h4>
-                <p class="text-slate-400">Streamlining operations with n8n, Python scripts, and automated messaging.</p>
+            <div
+                class="p-10 rounded-[2.5rem] border border-slate-800 bg-slate-950 hover:bg-slate-900 hover:border-indigo-500/50 transition-all duration-500 group">
+                <i
+                    class="fa-solid fa-microchip text-4xl text-indigo-500 mb-8 group-hover:scale-110 transition-transform"></i>
+                <h4 class="text-2xl font-bold mb-4">AI Automation</h4>
+                <p class="text-slate-500 leading-relaxed">Leveraging Python and n8n to automate complex workflows and
+                    data pipelines.</p>
             </div>
-            <div class="p-8 rounded-3xl border border-slate-800 bg-slate-950 hover:border-emerald-500 transition">
-                <i class="fa-solid fa-shield-halved text-3xl text-emerald-500 mb-6"></i>
-                <h4 class="text-xl font-bold mb-4">Cloud Solutions</h4>
-                <p class="text-slate-400">Robust backend architectures powered by Firebase and secure cloud hosting.</p>
+            <div
+                class="p-10 rounded-[2.5rem] border border-slate-800 bg-slate-950 hover:bg-slate-900 hover:border-emerald-500/50 transition-all duration-500 group">
+                <i
+                    class="fa-solid fa-database text-4xl text-emerald-500 mb-8 group-hover:scale-110 transition-transform"></i>
+                <h4 class="text-2xl font-bold mb-4">Backend Ops</h4>
+                <p class="text-slate-500 leading-relaxed">Secure, real-time database management with Firebase and robust
+                    SQL backends.</p>
             </div>
         </div>
     </section>
 
-    <section id="projects" class="py-24 px-6 bg-slate-900/30 reveal">
+    <section id="projects" class="py-32 px-6 bg-slate-900/20 reveal">
         <div class="max-w-7xl mx-auto">
-            <h2 class="text-4xl font-bold mb-12">Case Studies</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+                <div>
+                    <h2 class="text-4xl font-black mb-4 uppercase tracking-tighter">Selected Case Studies</h2>
+                    <p class="text-slate-500">A track record of technical excellence.</p>
+                </div>
+                <div class="text-blue-500 font-bold hover:underline cursor-pointer">Explore Archive →</div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
                 <div
-                    class="group relative overflow-hidden rounded-3xl bg-slate-900 border border-slate-800 p-8 hover:border-blue-500 transition">
-                    <h3 class="text-2xl font-bold mb-4">SaaS Enterprise Dashboard</h3>
-                    <p class="text-slate-400 mb-6">Real-time data visualization platform with advanced admin controls.
-                    </p>
-                    <div class="flex gap-2">
+                    class="group relative overflow-hidden rounded-[2rem] bg-slate-900 border border-slate-800 p-10 hover:border-blue-500 transition-all duration-500">
+                    <div class="mb-8 flex justify-between items-start">
+                        <i class="fa-solid fa-chart-line text-3xl text-blue-400"></i>
                         <span
-                            class="text-xs bg-slate-800 text-blue-400 px-3 py-1 rounded-full border border-blue-400/30">React</span>
+                            class="text-[10px] uppercase font-black bg-blue-500/10 text-blue-400 px-4 py-1.5 rounded-full border border-blue-500/20">Active
+                            Project</span>
+                    </div>
+                    <h3 class="text-3xl font-bold mb-4">SaaS Hub Analytics</h3>
+                    <p class="text-slate-500 mb-10 leading-relaxed">Custom dashboard built for a logistics firm,
+                        reducing data processing time by 60% using real-time Firebase syncing.</p>
+                    <div class="flex gap-3">
                         <span
-                            class="text-xs bg-slate-800 text-blue-400 px-3 py-1 rounded-full border border-blue-400/30">Firebase</span>
+                            class="text-[11px] font-bold bg-slate-800 text-slate-300 px-4 py-1.5 rounded-full">#NEXTJS</span>
+                        <span
+                            class="text-[11px] font-bold bg-slate-800 text-slate-300 px-4 py-1.5 rounded-full">#FIREBASE</span>
                     </div>
                 </div>
                 <div
-                    class="group relative overflow-hidden rounded-3xl bg-slate-900 border border-slate-800 p-8 hover:border-indigo-500 transition">
-                    <h3 class="text-2xl font-bold mb-4">Workflow Automation Hub</h3>
-                    <p class="text-slate-400 mb-6">Integrated multi-channel communication engine for high-volume lead
-                        management.</p>
-                    <div class="flex gap-2">
+                    class="group relative overflow-hidden rounded-[2rem] bg-slate-900 border border-slate-800 p-10 hover:border-indigo-500 transition-all duration-500">
+                    <div class="mb-8 flex justify-between items-start">
+                        <i class="fa-solid fa-network-wired text-3xl text-indigo-400"></i>
                         <span
-                            class="text-xs bg-slate-800 text-indigo-400 px-3 py-1 rounded-full border border-indigo-400/30">n8n</span>
+                            class="text-[10px] uppercase font-black bg-indigo-500/10 text-indigo-400 px-4 py-1.5 rounded-full border border-indigo-500/20">Operational</span>
+                    </div>
+                    <h3 class="text-3xl font-bold mb-4">AI Inquiry Automator</h3>
+                    <p class="text-slate-500 mb-10 leading-relaxed">An n8n-powered automation engine handling 1,500+
+                        client queries weekly with integrated OpenAI logic.</p>
+                    <div class="flex gap-3">
                         <span
-                            class="text-xs bg-slate-800 text-indigo-400 px-3 py-1 rounded-full border border-indigo-400/30">Python</span>
+                            class="text-[11px] font-bold bg-slate-800 text-slate-300 px-4 py-1.5 rounded-full">#PYTHON</span>
+                        <span
+                            class="text-[11px] font-bold bg-slate-800 text-slate-300 px-4 py-1.5 rounded-full">#N8N</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <footer id="contact" class="py-24 border-t border-slate-900 text-center">
-        <h2 class="text-4xl font-bold mb-6">Let's build your future.</h2>
-        <p class="text-slate-500 mb-10 max-w-lg mx-auto">Ready to discuss your project? Our team is available for
-            consulting and full-service development.</p>
-        <a href="mailto:hello@youragency.com"
-            class="text-3xl font-bold text-blue-500 hover:underline">hello@corestudio.com</a>
+    <footer id="contact" class="py-32 border-t border-slate-900 text-center px-6">
+        <h2 class="text-5xl font-black mb-8">Ready to evolve?</h2>
+        <p class="text-slate-500 mb-12 max-w-lg mx-auto text-lg leading-relaxed">Our development cycle for Q2 2026 is
+            currently open for new partnerships.</p>
+        <a href="mailto:hello@hmbtext.com"
+            class="text-3xl md:text-5xl font-black text-blue-500 hover:text-white transition-all duration-500 underline decoration-blue-500/30 underline-offset-8 decoration-4">hello@hmbtext.com</a>
 
-        <div class="mt-16 flex justify-center space-x-8 text-slate-600">
-            <a href="#" class="hover:text-white transition"><i class="fa-brands fa-github text-3xl"></i></a>
-            <a href="#" class="hover:text-white transition"><i class="fa-brands fa-linkedin text-3xl"></i></a>
+        <div
+            class="mt-24 flex flex-col md:flex-row items-center justify-between max-w-7xl mx-auto pt-10 border-t border-slate-900 gap-8">
+            <div class="text-sm font-bold text-slate-600">© 2026 HMBTEXT SOLUTIONS. ALL RIGHTS RESERVED.</div>
+            <div class="flex space-x-8 text-slate-500">
+                <a href="#" class="hover:text-blue-500 transition"><i class="fa-brands fa-github text-2xl"></i></a>
+                <a href="#" class="hover:text-blue-500 transition"><i class="fa-brands fa-linkedin text-2xl"></i></a>
+                <a href="#" class="hover:text-blue-500 transition"><i class="fa-brands fa-x-twitter text-2xl"></i></a>
+            </div>
         </div>
     </footer>
 
     <script>
+        // Scroll Reveal Animation
         function reveal() {
             const reveals = document.querySelectorAll(".reveal");
             reveals.forEach(el => {
                 const windowHeight = window.innerHeight;
                 const elementTop = el.getBoundingClientRect().top;
-                const elementVisible = 150;
+                const elementVisible = 100;
                 if (elementTop < windowHeight - elementVisible) {
                     el.classList.add("active");
                 }
@@ -199,6 +289,7 @@
         window.addEventListener("scroll", reveal);
         reveal(); // Run on initial load
 
+        // Mobile Menu Toggle
         const menuToggle = document.getElementById('menu-toggle');
         const mobileMenu = document.getElementById('mobile-menu');
 
@@ -209,7 +300,8 @@
                 mobileMenu.classList.toggle('hidden');
             });
 
-            document.querySelectorAll('#mobile-menu a').forEach(link => {
+            // Close menu on link click
+            document.querySelectorAll('.mobile-link').forEach(link => {
                 link.addEventListener('click', () => {
                     mobileMenu.classList.add('hidden');
                     menuToggle.setAttribute('aria-expanded', 'false');
